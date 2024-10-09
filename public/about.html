@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>About Us - Our Restaurant</title>
+</head>
+<body class="bg-gray-100">
+    <a href="/">home</a>
+
+
+    <header class="bg-green-600 text-white p-6 text-center">
+        <h1 class="text-3xl font-bold">About Us</h1>
+        <p class="mt-2">Learn more about our story, mission, and team.</p>
+    </header>
+
+    <main class="p-6">
+        <section id="history" class="mb-10">
+            <h2 class="text-2xl font-bold mb-4">Our Story</h2>
+            <p>
+                Founded in 2020, Our Restaurant has been dedicated to bringing authentic culinary experiences to our community. 
+                Our passion for food drives us to use only the freshest ingredients and traditional recipes.
+            </p>
+        </section>
+
+        <section id="mission" class="mb-10">
+            <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
+            <p>
+                Our mission is to create unforgettable dining experiences through exceptional food, great service, and a warm atmosphere. 
+                We believe in sustainable practices and support local farms and producers.
+            </p>
+        </section>
+
+        <section id="team" class="mb-10">
+            <h2 class="text-2xl font-bold mb-4">Meet Our Team</h2>
+            <div id="teamMembers" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-green-600 text-white text-center p-4">
+        <p>&copy; 2024 Our Restaurant. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js">
+        document.addEventListener('DOMContentLoaded', () => {
+    const teamMembers = document.getElementById('teamMembers');
+
+    // Sample data for team members
+    const members = [
+        {
+            name: 'John Doe',
+            position: 'Head Chef',
+            image: 'https://example.com/john.jpg', // Replace with actual image URLs
+            bio: 'With over 15 years of experience, John creates magic in the kitchen with his innovative recipes.'
+        },
+        {
+            name: 'Jane Smith',
+            position: 'Manager',
+            image: 'https://example.com/jane.jpg', // Replace with actual image URLs
+            bio: 'Jane ensures every guest has a memorable dining experience with her excellent leadership skills.'
+        },
+        {
+            name: 'Mark Johnson',
+            position: 'Sous Chef',
+            image: 'https://example.com/mark.jpg', // Replace with actual image URLs
+            bio: 'Mark supports John in the kitchen and specializes in crafting delectable desserts.'
+        }
+    ];
+
+    // Function to display team members
+    function displayTeam() {
+        teamMembers.innerHTML = ''; // Clear existing members
+        members.forEach(member => {
+            const memberElement = document.createElement('div');
+            memberElement.className = 'border rounded overflow-hidden shadow-lg bg-white';
+            memberElement.innerHTML = `
+                <img src="${member.image}" alt="${member.name}" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg">${member.name}</h3>
+                    <p class="text-gray-500">${member.position}</p>
+                    <p class="mt-2">${member.bio}</p>
+                </div>
+            `;
+            teamMembers.appendChild(memberElement);
+        });
+    }
+
+    // Display team members on load
+    displayTeam();
+});
+
+    </script>
+</body>
+</html>
+

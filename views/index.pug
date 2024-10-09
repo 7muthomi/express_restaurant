@@ -1,0 +1,33 @@
+extends layout 
+block content 
+    
+    img(src="/images/hp.jpeg" class="w-full object-cover" alt="image of a restaurant")
+    section(class="mb-10")
+        h2(class="text-2xl font-bold mb-4 text-center") Menu
+        
+        ul(class="mt-8 grid grid-cols-3 gap-2") 
+            each recipe in recipes
+                li
+                    h2= recipe.title
+                
+                    img(src=recipe.image, alt=recipe.title, width="200")
+                    p= recipe.summary
+                    a(href=recipe.sourceUrl target="_blank") View Recipe
+        h1 List of drinks
+        if drinks && drinks.length
+             ul
+                each drink in drinks
+                    li
+                        h2= drink.name
+                        p Type: #{drink.drink_type}
+                        p Address: #{drink.street}, #{drink.city}, #{drink.state}, #{drink.country}
+                        p Phone: #{drink.phone || 'N/A'}
+                        if drink.website_url
+                            a(href=drink.website_url target="_blank") Visit Website
+                        else
+                            p Website: Not available
+        else
+            p No drinks found.
+       
+        
+            

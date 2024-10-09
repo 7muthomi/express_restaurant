@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Drinks
+  body
+    h1 List of drinks
+    if drinks && drinks.length
+      ul
+        each drink in drinks
+          li
+            h2= drink.name
+            p Type: #{drink.drink_type}
+            p Address: #{drink.street}, #{drink.city}, #{drink.state}, #{drink.country}
+            p Phone: #{drink.phone || 'N/A'}
+            if drink.website_url
+              a(href=drink.website_url target="_blank") Visit Website
+            else
+              p Website: Not available
+    else
+      p No drinks found.
